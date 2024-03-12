@@ -4,7 +4,6 @@ from tkinter import messagebox
 
 
 class Convertor:
-
     def __init__(self, root):
         self.frameMenu = CTkFrame(root, width=170, height=370, fg_color='#4b5666')
         self.frameMenu.place(x=10, y=15)
@@ -45,12 +44,10 @@ class Convertor:
         self.comboCurrency2.set(self.currency[1])
         self.comboCurrency2.place(x=230, y=120)
 
-        self.entry1 = (CTkEntry(self.frameMain, text_color='white', height=90,  border_color='#55557a',
-                                border_width=4))
+        self.entry1 = (CTkEntry(self.frameMain, text_color='white', height=90))
         self.entry1.place(x=40, y=170)
 
-        self.entry2 = CTkEntry(self.frameMain, text_color='white', height=90, border_color='#55557a',
-                               border_width=4)
+        self.entry2 = CTkEntry(self.frameMain, text_color='white', height=90)
         self.entry2.place(x=230, y=170)
         self.entry2.configure(state='disabled')
 
@@ -147,7 +144,9 @@ class Convertor:
 
         self.labelInfoCurrentUser = CTkLabel(self.frameMain, text='Виберіть валюту: ')
         self.labelInfoCurrentUser.place(x=80, y=260)
-        self.comboCurrent = CTkComboBox(self.frameMain, values=['USD', 'EUR', 'PLN', 'TRY', 'GBP'], state='readonly')
+        val = ['USD', 'EUR', 'PLN', 'TRY', 'GBP']
+        self.comboCurrent = CTkComboBox(self.frameMain, values=val, state='readonly')
+        self.comboCurrent.set(val[0])
         self.comboCurrent.place(x=190, y=260)
 
         self.infoCountCurrentUser = CTkLabel(self.frameMain, text='Введіть кількість: ')
